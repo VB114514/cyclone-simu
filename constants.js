@@ -251,6 +251,20 @@ const MAP_TYPES = [     // Land generation controls and option presets for diffe
             scale: 0,
             designations: 10
         }
+    },
+    {
+		label: "Global",
+        form: 'earth',
+        west: 0,
+        east: -0,
+        north: 90,
+        south: -90,
+        mainSubBasin: EARTH_SB_IDS.medi,
+        optionPresets: {
+            hem: 1,
+            scale: 0,
+            designations: 10
+        }
     }
 ];
 const EARTH_MAP_PATH = 'resources/earth.png';
