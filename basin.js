@@ -8,13 +8,9 @@ class Basin{
         this.subBasins = {};
         this.tick = 0;
         this.lastSaved = 0;
-        this.godMode = opts.godMode;
+        this.testMode = opts.testMode;
         this.SHem = opts.hem;
         this.actMode = opts.actMode || 0;
-        if(SEASON_CURVE[this.actMode])
-            seasonCurve = window[SEASON_CURVE[this.actMode]];
-        else
-            seasonCurve = window[SEASON_CURVE.default];
         if(opts.year !== undefined)
             this.startYear = opts.year;
         else if(this.SHem)
@@ -410,10 +406,11 @@ class Basin{
         this.addSubBasin(ids.world, undefined, 'World');
         this.addSubBasin(ids.nhem, undefined, 'Northern Hemisphere', ids.world);
         this.addSubBasin(ids.shem, undefined, 'Southern Hemisphere', ids.world);
-        this.addSubBasin(ids.atlland, undefined, 'Atl Land (technical)', ids.atl);
-        this.addSubBasin(ids.nhem, undefined, 'NHEM', ids.world,
+        this.addSubBasin(ids.atl, undefined, 'Atlantic', ids.nhem,
             Scale.saffirSimpson.clone(),
+            DesignationSystem.atlantic.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
             );
+        this.addSubBasin(ids.atlland, undefined, 'Atl Land (technical)', ids.atl);
         this.addSubBasin(ids.epac, undefined, 'Eastern Pacific', ids.nhem,
             Scale.saffirSimpson.clone(),
             DesignationSystem.easternPacific.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
@@ -524,7 +521,7 @@ class Basin{
             b.flags = 0;
             b.flags |= 0;   // former hyper mode
             b.flags <<= 1;
-            b.flags |= this.godMode;
+            b.flags |= this.testMode;
             b.flags <<= 1;
             b.flags |= this.SHem;
             for(let p of [
@@ -585,7 +582,7 @@ class Basin{
                         let flags = obj.flags;
                         this.SHem = flags & 1;
                         flags >>= 1;
-                        this.godMode = flags & 1;
+                        this.testMode = flags & 1;
                         flags >>= 1;
                         oldhyper = flags & 1;
                         this.actMode = obj.actMode;
@@ -632,7 +629,7 @@ class Basin{
                             this.mapType = arr.pop() || 0;
                             this.SHem = flags & 1;
                             flags >>= 1;
-                            this.godMode = flags & 1;
+                            this.testMode = flags & 1;
                             flags >>= 1;
                             oldhyper = flags & 1;
                             if(oldhyper)
@@ -677,10 +674,6 @@ class Basin{
                         }
                     }
                     this.env.init(envData);
-                    if(SEASON_CURVE[this.actMode])
-                        seasonCurve = window[SEASON_CURVE[this.actMode]];
-                    else
-                        seasonCurve = window[SEASON_CURVE.default];
                     if(oldNameList){
                         let desSys = DesignationSystem.convertFromOldNameList(oldNameList);
                         if(!desSys.naming.annual)
