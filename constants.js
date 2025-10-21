@@ -255,14 +255,14 @@ const MAP_TYPES = [     // Land generation controls and option presets for diffe
     {
 		label: "Global",
         form: 'earth',
-        west: 0,
-        east: -0,
-        north: 90,
-        south: -90,
+        west: 98,
+        east: -77.29,
+        north: 70,
+        south: 0,
         mainSubBasin: EARTH_SB_IDS.world,
         optionPresets: {
             hem: 1,
-            scale: 0,
+            scale: 3,
             designations: 3
         }
     }
