@@ -253,13 +253,13 @@ const MAP_TYPES = [     // Land generation controls and option presets for diffe
         }
     },
     {
-		label: "Global",
+		label: "NHEM",
         form: 'earth',
         west: 98,
         east: -77.29,
         north: 70,
         south: 0,
-        mainSubBasin: EARTH_SB_IDS.world,
+        mainSubBasin: EARTH_SB_IDS.nhem,
         optionPresets: {
             hem: 1,
             scale: 3,
