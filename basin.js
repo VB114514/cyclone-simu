@@ -8,7 +8,7 @@ class Basin{
         this.subBasins = {};
         this.tick = 0;
         this.lastSaved = 0;
-        this.testMode = opts.testMode;
+        this.godMode = opts.godMode;
         this.SHem = opts.hem;
         this.actMode = opts.actMode || 0;
         if(opts.year !== undefined)
