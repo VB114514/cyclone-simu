@@ -259,11 +259,11 @@ const MAP_TYPES = [     // Land generation controls and option presets for diffe
         east: -0,
         north: 90,
         south: -90,
-        mainSubBasin: EARTH_SB_IDS.medi,
+        mainSubBasin: EARTH_SB_IDS.world,
         optionPresets: {
             hem: 1,
             scale: 0,
-            designations: 10
+            designations: 3
         }
     }
 ];
