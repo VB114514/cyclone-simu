@@ -410,11 +410,10 @@ class Basin{
         this.addSubBasin(ids.world, undefined, 'World');
         this.addSubBasin(ids.nhem, undefined, 'Northern Hemisphere', ids.world);
         this.addSubBasin(ids.shem, undefined, 'Southern Hemisphere', ids.world);
-        this.addSubBasin(ids.atl, undefined, 'Atlantic', ids.nhem,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.atlantic.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
         this.addSubBasin(ids.atlland, undefined, 'Atl Land (technical)', ids.atl);
+        this.addSubBasin(ids.nhem, undefined, 'NHEM', ids.world,
+            Scale.saffirSimpson.clone(),
+            );
         this.addSubBasin(ids.epac, undefined, 'Eastern Pacific', ids.nhem,
             Scale.saffirSimpson.clone(),
             DesignationSystem.easternPacific.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
@@ -484,45 +483,6 @@ class Basin{
         this.addSubBasin(ids.satl, undefined, 'South Atlantic', ids.shem,
             undefined,
             DesignationSystem.southAtlantic.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.swio, undefined, 'South-West Indian Ocean', ids.world,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.southWestIndianOcean.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.spac, undefined, 'South Pacific', ids.world,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.southPacific.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.satl, undefined, 'South Atlantic', ids.world,
-            undefined,
-            DesignationSystem.saffirSimpson.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.aus, undefined, 'Australian Region', ids.world,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.australianRegionBoM.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.epac, undefined, 'Eastern Pacific', ids.world,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.easternPacific.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-            undefined,
-            DesignationSystem.centralPacific.clone().setCrossingModes(DESIG_CROSSMODE_KEEP, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.wpac, undefined, 'Western Pacific', ids.world,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.westernPacific.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.nio, undefined, 'North Indian Ocean', ids.world,
-            Scale.IMD.clone(),
-            DesignationSystem.northIndianOcean.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.atl, undefined, 'Atlantic', ids.world,
-            Scale.saffirSimpson.clone(),
-            DesignationSystem.atlantic.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
-            );
-        this.addSubBasin(ids.medi, undefined, 'Mediterranean Sea', ids.world,
-            undefined,
-            DesignationSystem.mediterranean.clone().setCrossingModes(undefined, DESIG_CROSSMODE_KEEP)
             );
     }
 
