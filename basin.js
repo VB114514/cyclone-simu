@@ -11,6 +11,10 @@ class Basin{
         this.godMode = opts.godMode;
         this.SHem = opts.hem;
         this.actMode = opts.actMode || 0;
+        if(SEASON_CURVE[this.actMode])
+            seasonCurve = window[SEASON_CURVE[this.actMode]];
+        else
+            seasonCurve = window[SEASON_CURVE.default];
         if(opts.year !== undefined)
             this.startYear = opts.year;
         else if(this.SHem)
@@ -18,10 +22,6 @@ class Basin{
         else
             this.startYear = NHEM_DEFAULT_YEAR;
         this.mapType = opts.mapType || 0;
-        if(SEASON_CURVE[this.actMode])
-            seasonCurve = window[SEASON_CURVE[this.actMode]];
-        else
-            seasonCurve = window[SEASON_CURVE.default];
         if(MAP_TYPES[this.mapType].form === 'earth'){
             this.mainSubBasin = MAP_TYPES[this.mapType].mainSubBasin;
             this.defineEarthSubBasins();
